@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AppMmaFight",
+            "request": "launch",
+            "mainClass": "br.mmafight.AppMmaFight",
+            "projectName": "mmafight-college-project"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AppMma",
+            "request": "launch",
+            "mainClass": "br.mmafight.AppMma",
+            "projectName": "mmafight-college-project"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AppMma",
+            "request": "launch",
+            "mainClass": "AppMma",
+            "projectName": "appmma_1fa35262"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "mainClass": "Applicationwwt.java",
+            "projectName": "firstversion"
+        }
+    ]
+}
