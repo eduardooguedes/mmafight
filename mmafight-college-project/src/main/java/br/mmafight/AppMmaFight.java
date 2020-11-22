@@ -5,16 +5,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.mmafight.Lutador.Lutador;
+
 @SpringBootApplication
-public class AppMmaFight implements CommandLineRunner{
-    
+public class AppMmaFight implements CommandLineRunner {
+
     @Autowired
-    private Lutador werdum= new Lutador("werdum", "Vai Cavalo", 109.77, 193.04);
-    
+    private Lutador werdum = new Lutador("werdum", "Vai Cavalo", 109.77, 193.04);
+
     public static void main(String[] args) {
-        
+
         SpringApplication.run(AppMmaFight.class, args).close();
-        
+
     }
 
     @Override
@@ -22,4 +24,4 @@ public class AppMmaFight implements CommandLineRunner{
         System.out.println(werdum.getNome());
 
     }
-}   
+}
