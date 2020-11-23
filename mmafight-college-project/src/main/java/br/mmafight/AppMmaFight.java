@@ -6,11 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.mmafight.Lutador.Lutador;
+import br.mmafight.Lutador.LutadorService;
 
 @SpringBootApplication
 public class AppMmaFight implements CommandLineRunner {
 
     @Autowired
+    private LutadorService lutadorService;
+
     private Lutador werdum = new Lutador("werdum", "Vai Cavalo", 109.77, 193.04);
 
     public static void main(String[] args) {
@@ -21,7 +24,9 @@ public class AppMmaFight implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(werdum.getNome());
-
+        lutadorService.saveLutador(werdum);
+        for (Lutador lt : lutadorService.obterLutadores()) {
+            System.out.println(lt.getNome() + " - altura > " + lt.getAltura() + " - peso > " + lt.getPeso());
+        }
     }
 }

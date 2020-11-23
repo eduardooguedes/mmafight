@@ -1,37 +1,37 @@
 package br.mmafight;
 
-public class Vitória extends ResultadoLuta{
+public class Vitória extends InfoLutas {
 
-    public Vitória(){
+    public Vitória() {
     }
 
     @Override
-    public int getNocautes(){
+    public int getNocautes() {
         return super.getNocautes();
     }
 
     @Override
-    public void addNocaute(){
+    public void addNocaute() {
         super.addNocaute();
     }
 
     @Override
-    public int getFinalizações(){
+    public int getFinalizações() {
         return super.getFinalizações();
     }
 
     @Override
-    public void addFinalização(){
+    public void addFinalização() {
         super.addFinalização();
     }
 
     @Override
-    public void addDecisãoJuiz(){
+    public void addDecisãoJuiz() {
         super.addDecisãoJuiz();
     }
 
     @Override
-    public int getDecisõesJuiz(){
+    public int getDecisõesJuiz() {
         return super.getDecisõesJuiz();
     }
 

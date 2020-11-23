@@ -16,15 +16,20 @@ public class Lutador {
     private Double altura;
     private Double peso;
 
-    private Cartel cartel = new Cartel(this);
+    // private Cartel cartel = new Cartel(this);
+    public Lutador() {
+    }
 
     public Lutador(String nome, String apelido, Double altura, Double peso) {
-        super();
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.apelido = apelido;
         this.altura = altura;
         this.peso = peso;
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public String getNome() {
@@ -43,9 +48,9 @@ public class Lutador {
         return this.peso;
     }
 
-    public Cartel getCartel() {
-        return this.cartel;
-    }
+    // public Cartel getCartel() {
+    // return this.cartel;
+    // }
 
     @Override
     public boolean equals(Object o) {

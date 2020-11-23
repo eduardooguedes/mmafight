@@ -1,32 +1,32 @@
 package br.mmafight;
 
-public class ResultadoLuta {
+public class InfoLutas {
 
     private int nocautes;
     private int finalizações;
     private int decisõesJuiz;
 
-    public void addNocaute(){
+    public void addNocaute() {
         nocautes++;
     }
 
-    public int getNocautes(){
+    public int getNocautes() {
         return this.nocautes;
     }
 
-    public void addFinalização(){
+    public void addFinalização() {
         finalizações++;
     }
 
-    public int getFinalizações(){
+    public int getFinalizações() {
         return this.finalizações;
     }
 
-    public void addDecisãoJuiz(){
+    public void addDecisãoJuiz() {
         decisõesJuiz++;
     }
 
-    public int getDecisõesJuiz(){
+    public int getDecisõesJuiz() {
         return decisõesJuiz;
     }
 
