@@ -1,13 +1,22 @@
 package br.mmafight.Lutador;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
+import br.mmafight.BaseEntity;
+import br.mmafight.Patrocinador;
+import br.mmafight.CartelLutador.Cartel;
 
 @Entity
-public class Lutador {
+public class Lutador extends BaseEntity {
 
     @Id
     private String id;
@@ -16,16 +25,25 @@ public class Lutador {
     private Double altura;
     private Double peso;
 
-    // private Cartel cartel = new Cartel(this);
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Cartel cartel = new Cartel(this);
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Patrocinador> patrocinadores = new ArrayList<Patrocinador>();
+
     public Lutador() {
     }
 
     public Lutador(String nome, String apelido, Double altura, Double peso) {
-        this.id = UUID.randomUUID().toString();
+        super();
         this.nome = nome;
         this.apelido = apelido;
         this.altura = altura;
         this.peso = peso;
+    }
+
+    public void addPatrocinador(Patrocinador patrocinador) {
+        patrocinadores.add(patrocinador);
     }
 
     public String getId() {
@@ -48,9 +66,9 @@ public class Lutador {
         return this.peso;
     }
 
-    // public Cartel getCartel() {
-    // return this.cartel;
-    // }
+    public Cartel getCartel() {
+        return this.cartel;
+    }
 
     @Override
     public boolean equals(Object o) {

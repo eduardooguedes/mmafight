@@ -1,7 +1,7 @@
-// package br.mmafight.CartelLutador;
+package br.mmafight.CartelLutador;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-// public interface CartelRepository extends JpaRepository<Cartel, String> {
+public interface CartelRepository extends JpaRepository<Cartel, String> {
 
-// }
+}

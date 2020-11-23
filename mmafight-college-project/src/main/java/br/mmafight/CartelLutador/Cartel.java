@@ -1,59 +1,72 @@
-// package br.mmafight.CartelLutador;
+package br.mmafight.CartelLutador;
 
-// import java.util.ArrayList;
-// import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-// import javax.persistence.Entity;
-// import javax.persistence.Id;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-// import br.mmafight.Derrota;
-// import br.mmafight.Vitória;
-// import br.mmafight.Lutador.Lutador;
+import br.mmafight.Derrota;
+import br.mmafight.Vitória;
+import br.mmafight.Lutador.Lutador;
 
-// @Entity
-// public class Cartel {
+@Entity
+public class Cartel {
 
-// @Id
-// private String id;
-// private Lutador lutador;
-// private int empates;
-// private List<Vitória> vitórias = new ArrayList<>();
-// private List<Derrota> derrotas = new ArrayList<Derrota>();
+    @Id
+    private String id;
 
-// public Cartel(Lutador lutador) {
-// this.lutador = lutador;
-// }
+    @OneToOne(cascade = CascadeType.ALL)
+    private Lutador lutador;
 
-// public Lutador getLutador() {
-// return this.lutador;
-// }
+    private int empates;
 
-// public List<Vitória> getVitórias() {
-// return this.vitórias;
-// }
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Vitória> vitórias = new ArrayList<Vitória>();
 
-// public void addVitória(Vitória vitoria) {
-// vitórias.add(vitoria);
-// }
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Derrota> derrotas = new ArrayList<Derrota>();
 
-// public List<Derrota> getDerrotas() {
-// return this.derrotas;
-// }
+    public Cartel(Lutador lutador) {
+        this.lutador = lutador;
+        this.id = lutador.getId();
+    }
 
-// public void addDerrota(Derrota derrota) {
-// derrotas.add(derrota);
-// }
+    public Lutador getLutador() {
+        return this.lutador;
+    }
 
-// public int getEmpates() {
-// return this.empates;
-// }
+    public String getId() {
+        return this.id;
+    }
 
-// public void addEmpate() {
-// empates++;
-// }
+    public List<Vitória> getVitórias() {
+        return this.vitórias;
+    }
 
-// public String getId() {
-// return null;
-// }
+    public void addVitória(String resultado) {
+        Vitória nova = new Vitória(resultado);
+        vitórias.add(nova);
+    }
 
-// }
+    public List<Derrota> getDerrotas() {
+        return this.derrotas;
+    }
+
+    public void addDerrota(String resultado) {
+        Derrota nova = new Derrota(resultado);
+        derrotas.add(nova);
+    }
+
+    public int getEmpates() {
+        return this.empates;
+    }
+
+    public void addEmpate() {
+        empates++;
+    }
+}

@@ -1,37 +1,19 @@
 package br.mmafight;
 
-public class Derrota extends InfoLutas {
+import javax.persistence.Entity;
+
+@Entity
+public class Derrota extends InfoResultadoLuta {
 
     public Derrota() {
     }
 
-    @Override
-    public int getNocautes() {
-        return super.getNocautes();
+    public Derrota(String resultado) {
+        super(resultado);
     }
 
     @Override
-    public void addNocaute() {
-        super.addNocaute();
-    }
-
-    @Override
-    public int getFinalizações() {
-        return super.getFinalizações();
-    }
-
-    @Override
-    public void addFinalização() {
-        super.addFinalização();
-    }
-
-    @Override
-    public void addDecisãoJuiz() {
-        super.addDecisãoJuiz();
-    }
-
-    @Override
-    public int getDecisõesJuiz() {
-        return super.getDecisõesJuiz();
+    public String getResultado() {
+        return super.getResultado();
     }
 }
